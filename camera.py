@@ -14,7 +14,7 @@ class Camera:
         self.m_proj = glm.perspective(V_FOV, ASPECT_RATIO, NEAR, FAR)
         self.m_view = glm.mat4()
 
-        self.velocity_scale = 1.5
+        self.velocity_scale = 5
 
     def update(self):
         self.update_vectors()

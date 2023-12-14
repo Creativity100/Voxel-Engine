@@ -43,7 +43,7 @@ class VoxelEngine:
         self.on_init()
 
     def on_init(self):
-        self.texture = Textures(self)
+        self.textures = Textures(self)
         self.player = Player(self)
         self.shader_program = ShaderProgram(self)
         self.scene = Scene(self)

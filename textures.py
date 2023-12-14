@@ -9,6 +9,7 @@ class Textures:
 
         # load texture
         self.texture_0 = self.load('frame.png')
+        # self.texture_0 = self.load('test.png')
 
         # assign texture unit
         self.texture_0.use(location=0)
@@ -25,5 +26,5 @@ class Textures:
 
         texture.anisotropy = 32.0
         texture.build_mipmaps()
-        texture.filter = (mgl.NEAREST, mgl.NEAREST)
+        texture.filter = (mgl.LINEAR_MIPMAP_LINEAR, mgl.LINEAR)
         return texture
