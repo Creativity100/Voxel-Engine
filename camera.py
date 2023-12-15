@@ -14,7 +14,7 @@ class Camera:
         self.m_proj = glm.perspective(V_FOV, ASPECT_RATIO, NEAR, FAR)
         self.m_view = glm.mat4()
 
-        self.velocity_scale = 5
+        self.velocity_scale = 3
 
     def update(self):
         self.update_vectors()
@@ -40,7 +40,7 @@ class Camera:
         self.yaw += delta_x
 
     def move_left(self, velocity):
-        self.position -= self.right * velocity
+        self.position -= self.right * velocity * self.velocity_scale
 
     def move_right(self, velocity):
         self.position += self.right * velocity * self.velocity_scale
@@ -52,7 +52,7 @@ class Camera:
         self.position -= glm.vec3(0, 1, 0) * velocity * self.velocity_scale
 
     def move_forward(self, velocity):
-        self.position += self.forward * velocity * self.velocity_scale
+        self.position += glm.normalize(glm.vec3(self.forward.x, 0, self.forward.z)) * velocity * self.velocity_scale
 
     def move_back(self, velocity):
-        self.position -= self.forward * velocity * self.velocity_scale
+        self.position -= glm.normalize(glm.vec3(self.forward.x, 0, self.forward.z)) * velocity * self.velocity_scale
