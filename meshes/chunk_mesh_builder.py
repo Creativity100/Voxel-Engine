@@ -156,7 +156,7 @@ def build_chunk_mesh(chunk_voxels, format_size, chunk_pos, world_voxels):
                     v3 = pack_data(x,     y, z + 1, voxel_id, 1, ao[3], flip_id)
 
                     if flip_id:
-                        index = add_data(vertex_data, index, v1, v3, v2, v1, v2, v3)
+                        index = add_data(vertex_data, index, v1, v3, v0, v1, v2, v3)
                     else:
                         index = add_data(vertex_data, index, v0, v2, v3, v0, v1, v2)
 
